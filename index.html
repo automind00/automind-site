@@ -22,11 +22,11 @@
       justify-content: space-between;
       align-items: center;
       padding: 2rem;
-      background-color: #0f0f0f;
+      background-color: #000814;
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid #222;
+      border-bottom: 1px solid #001d3d;
     }
     header img {
       height: 50px;
@@ -62,7 +62,7 @@
     .cta {
       display: inline-block;
       background-color: #00f6ff;
-      color: #0f0f0f;
+      color: #000814;
       padding: 1rem 2rem;
       text-decoration: none;
       font-weight: bold;
@@ -70,7 +70,7 @@
       transition: background-color 0.3s;
     }
     .cta:hover {
-      background-color: #00c0cc;
+      background-color: #0077b6;
     }
     .gallery {
       display: flex;
@@ -85,7 +85,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
     form {
-      background-color: #1a1a1a;
+      background-color: #001d3d;
       padding: 2rem;
       border-radius: 10px;
       max-width: 600px;
@@ -95,14 +95,14 @@
       width: 100%;
       padding: 1rem;
       margin-bottom: 1rem;
-      background-color: #2a2a2a;
+      background-color: #003566;
       border: 1px solid #444;
       color: #fff;
       border-radius: 5px;
     }
     input[type="submit"] {
       background-color: #00f6ff;
-      color: #0f0f0f;
+      color: #000814;
       font-weight: bold;
       cursor: pointer;
     }
@@ -117,107 +117,57 @@
       display: none;
     }
     .carousel-item {
-      flex: 0 0 300px;
-      background-color: #1f1f1f;
+      flex: 0 0 auto;
+      width: 280px;
+      background-color: #001d3d;
       border-radius: 10px;
       padding: 1.5rem;
       scroll-snap-align: start;
-      border: 1px solid #333;
+      border: 1px solid #003566;
       text-align: center;
     }
     .carousel-item h3 {
       color: #00f6ff;
       margin-bottom: 1rem;
     }
+    .carousel-item p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
     footer {
       text-align: center;
       padding: 2rem;
-      border-top: 1px solid #222;
-      color: #555;
+      border-top: 1px solid #001d3d;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Automind Logo" />
-    <nav>
-      <a href="#hakkimizda">Hakkımızda</a>
-      <a href="#cozumler">Çözümler</a>
-      <a href="#paketler">Paketler</a>
-      <a href="#iletisim">İletişim</a>
-    </nav>
-  </header>
-
-  <section id="hakkimizda">
-    <h1>Türkiye'nin En İleri Dijital Otomasyon Ajansı: Automind</h1>
-    <p>Automind, manuel iş yüklerini tarihe gömen dijital dönüşüm ajansıdır. Sadece bir hizmet değil; sizi geleceğe taşıyacak akıllı bir sistem sunar. Klasik ajans anlayışını geride bırakıyor, işletmeleri yapay zeka destekli sistemlerle 7/24 çalışır hale getiriyoruz.</p>
-    <p>Instagram DM'lerinden, WhatsApp destek süreçlerine, veri analizinden müşteri hizmetlerine kadar her adımı otomatikleştiriyoruz. Üstelik her çözüm size özel planlanıyor, kuruluyor ve test ediliyor.</p>
-    <p>Markanız büyürken siz sadece işinize odaklanın. Gerisini biz hallederiz.</p>
-  </section>
-
-  <div class="gallery">
-    <img src="n8n-1.png" alt="n8n arayüz 1" />
-    <img src="n8n-2.png" alt="n8n arayüz 2" />
-  </div>
-
-  <section id="cozumler">
-    <h2>İşletmenizi Geleceğe Taşıyoruz: Neleri Dönüştürüyoruz?</h2>
-    <ul>
-      <li>⚙️ Tekrarlayan iş yüklerini sıfıra indiriyoruz</li>
-      <li>📩 Yapay zeka ile DM, WhatsApp, mail cevapları</li>
-      <li>🧠 Otomatik müşteri desteği & talep yönetimi</li>
-      <li>📊 Raporlama, analiz ve takip sistemleri</li>
-    </ul>
-  </section>
-
   <section id="paketler">
     <h2>Size Özel Paketler</h2>
     <div class="carousel">
       <div class="carousel-item">
-        <h3>Instagram DM Botu</h3>
-        <p>Yapay zeka ile gelen mesajlara anında cevap veren sistem.</p>
+        <h3>Instagram & WhatsApp Otomasyonu</h3>
+        <p>Mesajlarınızı yapay zeka ile yönetin, müşteri hizmetlerinizi otomatikleştirin.</p>
       </div>
       <div class="carousel-item">
-        <h3>WhatsApp Otomasyonu</h3>
-        <p>WhatsApp Business API ile tam otomatik müşteri etkileşimi.</p>
+        <h3>Satış Otomasyonu</h3>
+        <p>Leads to CRM to satışa dönüşüm süreçlerini uçtan uca otomatikleştiriyoruz.</p>
       </div>
       <div class="carousel-item">
-        <h3>Mail Otomatik Yanıt</h3>
-        <p>Müşteri maillerine özel akışlarla otomatik dönüşler sağlanır.</p>
+        <h3>Sesli AI Agent Sistemleri</h3>
+        <p>Müşteriyle konuşabilen AI botları ile çağrı merkezi maliyetlerini sıfıra indirin.</p>
       </div>
       <div class="carousel-item">
-        <h3>n8n Senaryo Kurulumu</h3>
-        <p>Özel senaryolarla iş akışlarınızı tam otomat hale getirin.</p>
+        <h3>Raporlama & Veri Otomasyonu</h3>
+        <p>Google Sheets, Excel, Data Studio entegrasyonlarıyla zaman kazandırın.</p>
       </div>
       <div class="carousel-item">
-        <h3>CRM + Google Sheets</h3>
-        <p>Otomatik kayıt, veri analizi ve takip sistemi kurulumu.</p>
-      </div>
-      <div class="carousel-item">
-        <h3>Yapay Zeka Destekli Raporlama</h3>
-        <p>Verilerden içgörü üreten otomatik rapor sistemleri.</p>
+        <h3>Form & E-mail Entegrasyonu</h3>
+        <p>Formlardan gelen verileri sınıflandırarak e-posta süreçlerini yönetin.</p>
       </div>
     </div>
   </section>
-
-  <section id="iletisim">
-    <h2>Hemen Başlayalım</h2>
-    <form action="https://formsubmit.co/your@email.com" method="POST">
-      <input type="text" name="isim" placeholder="Adınız Soyadınız" required>
-      <input type="email" name="email" placeholder="E-posta Adresiniz" required>
-      <textarea name="mesaj" placeholder="Mesajınız" rows="5" required></textarea>
-      <input type="submit" value="Gönder">
-    </form>
-    <p style="text-align:center; margin-top:2rem;">
-      veya doğrudan bir görüşme planlayın:
-      <br>
-      <a href="https://calendly.com/ekremhndolu/30min" class="cta" target="_blank">Randevu Al</a>
-    </p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Automind | Tüm hakları saklıdır.</p>
-  </footer>
 </body>
 </html>
 
