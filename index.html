@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -10,7 +9,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body { background-color: #0f0f0f; color: #f1f1f1; line-height: 1.6; }
     header { display: flex; justify-content: space-between; align-items: center; padding: 2rem; background-color: #0f0f0f; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222; }
-    header img { height: 50px; filter: brightness(0) invert(1); }
+    header img { height: 50px; }
     nav a { color: #f1f1f1; text-decoration: none; margin-left: 2rem; font-weight: 500; transition: color 0.3s; }
     nav a:hover { color: #00f6ff; }
     section { padding: 4rem 2rem; max-width: 1200px; margin: auto; animation: fadeIn 1.2s ease-in-out; }
@@ -20,42 +19,67 @@
     .cta { display: inline-block; background-color: #00f6ff; color: #0f0f0f; padding: 1rem 2rem; text-decoration: none; font-weight: bold; border-radius: 8px; transition: background-color 0.3s; }
     .cta:hover { background-color: #00c0cc; }
     footer { text-align: center; padding: 2rem; border-top: 1px solid #222; color: #555; }
+    ul li { margin-bottom: 1rem; }
+    form { background-color: #1a1a1a; padding: 2rem; border-radius: 12px; max-width: 600px; margin: auto; }
+    input, textarea { width: 100%; padding: 0.8rem; margin: 0.5rem 0 1rem; border: none; border-radius: 6px; }
+    input[type=submit] { background-color: #00f6ff; color: #0f0f0f; font-weight: bold; cursor: pointer; transition: background-color 0.3s; }
+    input[type=submit]:hover { background-color: #00c0cc; }
+    .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 2rem 0; }
+    .gallery img { width: 100%; max-width: 400px; border-radius: 12px; box-shadow: 0 0 20px #00000088; transition: transform 0.3s; }
+    .gallery img:hover { transform: scale(1.05); }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/OpenAI_Logo.svg/2048px-OpenAI_Logo.svg.png" alt="Automind Logo" />
+    <img src="https://raw.githubusercontent.com/otomatikzihin00/automind-site/main/logo.png" alt="Automind Logo" />
     <nav>
       <a href="#hakkimizda">Hakkımızda</a>
       <a href="#cozumler">Çözümler</a>
       <a href="#paketler">Paketler</a>
-      <a href="#randevu">Randevu</a>
+      <a href="#form">İletişim</a>
     </nav>
   </header>
+
   <section id="hakkimizda">
-    <h1>Automind’e Hoş Geldiniz</h1>
-    <p>Automind, işletmeniz için verimli ve akıllı dijital otomasyon çözümleri geliştirir. Zaman kazandırır, maliyetleri azaltır ve süreçleri optimize ederiz. Misyonumuz, teknolojiyi sizin için çalışan bir avantaja dönüştürmek.</p>
+    <h1>Türkiye'nin En İleri Dijital Otomasyon Ajansı: Automind</h1>
+    <p>Automind, manuel iş yüklerini tarihe gömen bir dijital dönüşüm ajansıdır. Sadece bir hizmet değil; sizi geleceğe taşıyacak akıllı bir sistem sunar. Klasik ajans anlayışını geride bırakıyor, işletmeleri yapay zeka destekli sistemlerle 7/24 çalışır hale getiriyoruz.</p>
+    <p>Instagram DM’lerinden, WhatsApp destek süreçlerine, veri analizinden müşteri hizmetlerine kadar her adımı otomatikleştiriyoruz. Üstelik her çözüm size özel planlanıyor, kuruluyor ve test ediliyor.</p>
+    <p>Markanız büyürken siz sadece işinize odaklanın. Gerisini biz hallederiz.</p>
   </section>
+
+  <section class="gallery">
+    <img src="https://n8n.io/images/product/workflow-editor.webp" alt="n8n arayüz 1" />
+    <img src="https://n8n.io/images/product/workflow-builder.webp" alt="n8n arayüz 2" />
+  </section>
+
   <section id="cozumler">
-    <h2>Hangi Sorunları Çözüyoruz?</h2>
+    <h2>İşletmenizi Geleceğe Taşıyoruz: Neleri Dönüştürüyoruz?</h2>
     <ul>
-      <li>⚙️ Tekrarlayan iş yüklerini otomatikleştiriyoruz</li>
-      <li>📩 Instagram, WhatsApp, Mail gibi mesajları yapay zeka ile yönetiyoruz</li>
-      <li>🧠 Yapay zekayla müşteri hizmetlerini dönüştürüyoruz</li>
-      <li>📊 Raporlama ve veri analizi süreçlerini sadeleştiriyoruz</li>
+      <li>⚙️ <strong>Tekrarlayan İş Yüklerini Otomatikleştiriyoruz</strong> — Form doldurma, sipariş yönetimi, e-posta cevaplama gibi süreçleri size özel akışlarla devralıyoruz.</li>
+      <li>📩 <strong>Instagram, WhatsApp, Mail gibi Platformlarda Yapay Zeka</strong> — Müşteri sorularını anında yanıtlayan, satışa yönlendiren akıllı chatbotlar kuruyoruz.</li>
+      <li>🧠 <strong>Müşteri Hizmetlerinde İnsan Gibi Yanıt Veren Asistanlar</strong> — Kullanıcıları tanır, geçmiş veriyi analiz eder, kişiselleştirilmiş deneyim sunar.</li>
+      <li>📊 <strong>Veri Analizi & Raporlama Otomasyonu</strong> — Satış, trafik ve kullanıcı davranışlarını görsel panellerde sunan dashboard sistemleri kuruyoruz.</li>
     </ul>
   </section>
+
   <section id="paketler">
     <h2>Hizmet Paketlerimiz</h2>
-    <p><strong>Başlangıç Paketi</strong>: Tek platform otomasyonu (Örn: Instagram DM botu)</p>
-    <p><strong>Pro Paket</strong>: Çoklu platform entegrasyonu + özel senaryo</p>
-    <p><strong>Kurumsal Paket</strong>: Tam otomasyon sistemi + destek ve eğitim</p>
+    <p><strong>Başlangıç Paketi</strong>: Instagram DM, WhatsApp veya e-posta için tek platform otomasyonu. Hızlı kurulum + basit senaryo desteği.</p>
+    <p><strong>Pro Paket</strong>: 2-4 platform entegrasyonu, özel mesaj akışları, butonlu cevaplar ve akıllı yönlendirme sistemleri.</p>
+    <p><strong>Kurumsal Paket</strong>: Tam entegre otomasyon ağı. Veri analizi, CRM bağlantıları, gelişmiş yapay zeka yanıtları + destek ve eğitim içerir.</p>
   </section>
-  <section id="randevu">
-    <h2>Bizimle Görüşmek İster misiniz?</h2>
-    <p>İşletmenize özel otomasyon çözümlerimizi konuşmak için bir strateji görüşmesi ayarlayın.</p>
-    <a href="https://calendly.com/automind" class="cta">Randevu Al</a>
+
+  <section id="form">
+    <h2>Ücretsiz Danışmanlık Talebi</h2>
+    <p>Aşağıdaki formu doldurun, sizinle en kısa sürede iletişime geçelim:</p>
+    <form action="https://formspree.io/f/your-id" method="POST">
+      <input type="text" name="name" placeholder="Adınız Soyadınız" required />
+      <input type="email" name="email" placeholder="E-posta Adresiniz" required />
+      <textarea name="message" placeholder="Kısaca neye ihtiyacınız olduğunu yazın..." rows="5" required></textarea>
+      <input type="submit" value="Gönder" />
+    </form>
   </section>
+
   <footer>
     <p>&copy; 2025 Automind | Dijital Otomasyon Ajansı</p>
   </footer>
