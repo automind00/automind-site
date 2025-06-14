@@ -112,6 +112,7 @@
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       gap: 1rem;
+      scroll-behavior: smooth;
     }
     .carousel::-webkit-scrollbar {
       display: none;
@@ -125,6 +126,10 @@
       scroll-snap-align: start;
       border: 1px solid #003566;
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .carousel-item:hover {
+      transform: scale(1.05);
     }
     .carousel-item h3 {
       color: #00f6ff;
@@ -143,6 +148,11 @@
   </style>
 </head>
 <body>
+  <section id="vizyon">
+    <h2>İşletmenizi Geleceğe Taşıyoruz</h2>
+    <p>Automind olarak yalnızca otomasyon çözümleri sunmakla kalmıyoruz; aynı zamanda işletmenizi dijital çağın gereksinimlerine uyumlu hale getiriyoruz. Süreçlerinizi verimli hale getiriyor, insan hatasını minimize ediyor ve rekabet avantajı sağlıyoruz. Akıllı entegrasyonlar, sesli AI ajanlar, veri otomasyonu ve çok daha fazlasıyla geleceği bugünden işletmenize taşıyoruz.</p>
+  </section>
+
   <section id="paketler">
     <h2>Size Özel Paketler</h2>
     <div class="carousel">
@@ -152,7 +162,7 @@
       </div>
       <div class="carousel-item">
         <h3>Satış Otomasyonu</h3>
-        <p>Leads to CRM to satışa dönüşüm süreçlerini uçtan uca otomatikleştiriyoruz.</p>
+        <p>Lead to CRM to satışa dönüşüm süreçlerini uçtan uca otomatikleştiriyoruz.</p>
       </div>
       <div class="carousel-item">
         <h3>Sesli AI Agent Sistemleri</h3>
@@ -168,6 +178,23 @@
       </div>
     </div>
   </section>
+
+  <section id="nedenbiz">
+    <h2>Neden Automind?</h2>
+    <p>Geleneksel ajanslardan farklı olarak, Automind olarak sadece bir çözüm değil, sürdürülebilir bir büyüme modeli sunuyoruz. Her müşterimize özel analiz, proje planlaması ve sürekli destek sağlıyoruz. Teknolojiyi sadece kullanmakla kalmıyor, sizin için çalıştırıyoruz.</p>
+  </section>
+
+  <section id="sss">
+    <h2>Sıkça Sorulan Sorular</h2>
+    <p><strong>Otomasyonlar hangi platformlarda çalışıyor?</strong><br>Instagram, WhatsApp, Telegram, Slack, Google Sheets, Gmail ve daha fazlası ile entegrasyon sağlıyoruz.</p>
+    <p><strong>Kurulumdan sonra destek veriyor musunuz?</strong><br>Evet, her paket sonrası belirli süreli destek ve eğitim sağlıyoruz.</p>
+    <p><strong>Yapay zeka ile mesajları gerçekten anlayıp cevaplayabilir mi?</strong><br>Evet, GPT destekli sistemlerimiz gelen mesajları analiz edip uygun cevapları otomatik üretebiliyor.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Automind | Dijital Otomasyon Ajansı</p>
+  </footer>
 </body>
 </html>
+
 
