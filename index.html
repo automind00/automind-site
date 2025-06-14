@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -5,196 +6,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Automind | Dijital Otomasyon Ajansı</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body {
       background-color: #0f0f0f;
       color: #f1f1f1;
       line-height: 1.6;
+      background: radial-gradient(circle at center, rgba(0, 246, 255, 0.1), #0f0f0f 80%);
     }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem;
-      background-color: #000814;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #001d3d;
-    }
-    header img {
-      height: 50px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 2rem; background-color: #000814; border-bottom: 1px solid #001d3d;
     }
     nav a {
-      color: #f1f1f1;
-      text-decoration: none;
-      margin-left: 2rem;
-      font-weight: 500;
-      transition: color 0.3s;
+      color: #f1f1f1; text-decoration: none; margin-left: 2rem; font-weight: 500;
     }
-    nav a:hover {
-      color: #00f6ff;
-    }
+    nav a:hover { color: #00f6ff; }
     section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-      animation: fadeIn 1.2s ease-in-out;
+      padding: 4rem 2rem; max-width: 1200px; margin: auto;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    h1, h2 {
-      color: #ffffff;
-      margin-bottom: 1rem;
-    }
-    p {
-      color: #cccccc;
-      margin-bottom: 1.5rem;
-    }
+    h1, h2 { color: #ffffff; margin-bottom: 1rem; }
+    p { color: #cccccc; margin-bottom: 1.5rem; }
     .cta {
-      display: inline-block;
-      background-color: #00f6ff;
-      color: #000814;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-    .cta:hover {
-      background-color: #0077b6;
-    }
-    .gallery {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem auto;
-      flex-wrap: wrap;
-    }
-    .gallery img {
-      max-width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-    form {
-      background-color: #001d3d;
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: auto;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      background-color: #003566;
-      border: 1px solid #444;
-      color: #fff;
-      border-radius: 5px;
-    }
-    input[type="submit"] {
-      background-color: #00f6ff;
-      color: #000814;
-      font-weight: bold;
-      cursor: pointer;
+      background: linear-gradient(135deg, #00f6ff, #0077b6);
+      color: #000814; padding: 1rem 2rem; text-decoration: none;
+      font-weight: bold; border-radius: 8px; display: inline-block;
     }
     .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      gap: 1rem;
-      scroll-behavior: smooth;
-    }
-    .carousel::-webkit-scrollbar {
-      display: none;
+      display: flex; gap: 1rem; overflow-x: auto;
+      scroll-snap-type: x mandatory; scroll-behavior: smooth;
     }
     .carousel-item {
-      flex: 0 0 auto;
-      width: 280px;
-      background-color: #001d3d;
-      border-radius: 10px;
-      padding: 1.5rem;
-      scroll-snap-align: start;
-      border: 1px solid #003566;
-      text-align: center;
-      transition: transform 0.3s ease;
+      flex: 0 0 auto; width: 300px; background-color: #001d3d;
+      border-radius: 10px; padding: 1.5rem; scroll-snap-align: start;
     }
-    .carousel-item:hover {
-      transform: scale(1.05);
+    form {
+      display: flex; flex-direction: column; gap: 1rem;
+      max-width: 600px; margin-top: 2rem;
     }
-    .carousel-item h3 {
-      color: #00f6ff;
-      margin-bottom: 1rem;
+    form input, form textarea {
+      padding: 0.75rem; background-color: #001d3d;
+      border: 1px solid #003566; border-radius: 6px; color: #f1f1f1;
     }
-    .carousel-item p {
-      color: #ccc;
-      font-size: 0.95rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid #001d3d;
-      color: #888;
-    }
+    .faq-item h4 { color: #00f6ff; }
   </style>
 </head>
 <body>
-  <section id="vizyon">
-    <h2>İşletmenizi Geleceğe Taşıyoruz</h2>
-    <p>Automind olarak yalnızca otomasyon çözümleri sunmakla kalmıyoruz; aynı zamanda işletmenizi dijital çağın gereksinimlerine uyumlu hale getiriyoruz. Süreçlerinizi verimli hale getiriyor, insan hatasını minimize ediyor ve rekabet avantajı sağlıyoruz. Akıllı entegrasyonlar, sesli AI ajanlar, veri otomasyonu ve çok daha fazlasıyla geleceği bugünden işletmenize taşıyoruz.</p>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/OpenAI_Logo.svg/2048px-OpenAI_Logo.svg.png" height="50" alt="Automind Logo" />
+    <nav>
+      <a href="#automind">Automind Nedir</a>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="#sss">SSS</a>
+    </nav>
+  </header>
+
+  <section id="automind">
+    <h1>Automind Nedir?</h1>
+    <p>Automind, işletmenize özel akıllı otomasyon sistemleri geliştiren bir dijital ajanstır. Instagram, WhatsApp, Gmail, Slack, ChatGPT, n8n gibi modern araçlarla entegre çalışan sistemler geliştirerek, sizin yerinize çalışan dijital asistanlar ve satış temsilcileri üretir. Hedefimiz: işletmenizin zaman ve para kazanmasını sağlamak.</p>
   </section>
 
-  <section id="paketler">
+  <section id="hizmetler">
     <h2>Size Özel Paketler</h2>
     <div class="carousel">
-      <div class="carousel-item">
-        <h3>Instagram & WhatsApp Otomasyonu</h3>
-        <p>Mesajlarınızı yapay zeka ile yönetin, müşteri hizmetlerinizi otomatikleştirin.</p>
-      </div>
-      <div class="carousel-item">
-        <h3>Satış Otomasyonu</h3>
-        <p>Lead to CRM to satışa dönüşüm süreçlerini uçtan uca otomatikleştiriyoruz.</p>
-      </div>
-      <div class="carousel-item">
-        <h3>Sesli AI Agent Sistemleri</h3>
-        <p>Müşteriyle konuşabilen AI botları ile çağrı merkezi maliyetlerini sıfıra indirin.</p>
-      </div>
-      <div class="carousel-item">
-        <h3>Raporlama & Veri Otomasyonu</h3>
-        <p>Google Sheets, Excel, Data Studio entegrasyonlarıyla zaman kazandırın.</p>
-      </div>
-      <div class="carousel-item">
-        <h3>Form & E-mail Entegrasyonu</h3>
-        <p>Formlardan gelen verileri sınıflandırarak e-posta süreçlerini yönetin.</p>
-      </div>
+      <div class="carousel-item"><h3>Instagram DM Otomasyonu</h3><p>Yorumlara otomatik yanıt, DM yönlendirme ve chatbot entegrasyonu.</p></div>
+      <div class="carousel-item"><h3>Satış Otomasyonu</h3><p>Potansiyel müşterilere otomatik takip, e-posta dizileri ve CRM entegrasyonu.</p></div>
+      <div class="carousel-item"><h3>Sesli AI Agent</h3><p>Yapay zeka destekli sesli müşteri hizmetleri sistemleri.</p></div>
+      <div class="carousel-item"><h3>n8n Entegrasyonları</h3><p>İş süreçlerinizi otomatikleştiren profesyonel n8n senaryoları.</p></div>
     </div>
-  </section>
-
-  <section id="nedenbiz">
-    <h2>Neden Automind?</h2>
-    <p>Geleneksel ajanslardan farklı olarak, Automind olarak sadece bir çözüm değil, sürdürülebilir bir büyüme modeli sunuyoruz. Her müşterimize özel analiz, proje planlaması ve sürekli destek sağlıyoruz. Teknolojiyi sadece kullanmakla kalmıyor, sizin için çalıştırıyoruz.</p>
   </section>
 
   <section id="sss">
     <h2>Sıkça Sorulan Sorular</h2>
-    <p><strong>Otomasyonlar hangi platformlarda çalışıyor?</strong><br>Instagram, WhatsApp, Telegram, Slack, Google Sheets, Gmail ve daha fazlası ile entegrasyon sağlıyoruz.</p>
-    <p><strong>Kurulumdan sonra destek veriyor musunuz?</strong><br>Evet, her paket sonrası belirli süreli destek ve eğitim sağlıyoruz.</p>
-    <p><strong>Yapay zeka ile mesajları gerçekten anlayıp cevaplayabilir mi?</strong><br>Evet, GPT destekli sistemlerimiz gelen mesajları analiz edip uygun cevapları otomatik üretebiliyor.</p>
+    <div class="faq-item">
+      <h4>Automind kimler için uygundur?</h4>
+      <p>Küçükten büyüğe tüm işletmeler için uygundur.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Hangi platformlarla entegre çalışıyorsunuz?</h4>
+      <p>Instagram, WhatsApp, Facebook, Gmail, Slack, ChatGPT, n8n ve daha fazlası.</p>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Automind | Dijital Otomasyon Ajansı</p>
-  </footer>
+  <section id="iletisim">
+    <h2>Bize Ulaşın</h2>
+    <form>
+      <input type="text" placeholder="Adınız Soyadınız" required>
+      <input type="email" placeholder="E-posta Adresiniz" required>
+      <textarea placeholder="Mesajınız" rows="5" required></textarea>
+      <button type="submit" class="cta">Gönder</button>
+    </form>
+    <p style="margin-top: 1rem;">Ya da <a href="https://calendly.com/ekremhndolu/30min" target="_blank">Calendly üzerinden randevu alın</a></p>
+  </section>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
-
-
