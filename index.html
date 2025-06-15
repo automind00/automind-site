@@ -1,107 +1,850 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Automind | Dijital Otomasyon Ajansı</title>
+  <meta name="description" content="Instagram, WhatsApp ve iş süreçleriniz için AI destekli otomasyon çözümleri">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://automind.com.tr/">
+  <meta property="og:title" content="Automind | Dijital Otomasyon Ajansı">
+  <meta property="og:description" content="Instagram, WhatsApp ve iş süreçleriniz için AI destekli otomasyon çözümleri">
+  <meta property="og:image" content="https://automind.com.tr/preview.jpg">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://automind.com.tr/">
+  <meta property="twitter:title" content="Automind | Dijital Otomasyon Ajansı">
+  <meta property="twitter:description" content="Instagram, WhatsApp ve iş süreçleriniz için AI destekli otomasyon çözümleri">
+  <meta property="twitter:image" content="https://automind.com.tr/preview.jpg">
+  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    :root {
+      --primary: #00f6ff;
+      --primary-dark: #0077b6;
+      --dark: #000814;
+      --dark-blue: #001d3d;
+      --darker-blue: #003566;
+      --light: #f1f1f1;
+      --gray: #cccccc;
+      --space-purple: #6a00ff;
+      --space-blue: #00b4d8;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
     body {
-      background-color: #0f0f0f;
-      color: #f1f1f1;
+      color: var(--light);
       line-height: 1.6;
-      background: radial-gradient(circle at center, rgba(0, 246, 255, 0.1), #0f0f0f 80%);
+      overflow-x: hidden;
+      background-color: var(--dark);
+      position: relative;
     }
+
+    /* Uzay Temalı Arka Plan */
+    .space-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle var(--duration) infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* AI Ağ Efekti */
+    .ai-network {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .ai-node {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(0, 246, 255, 0.5);
+      border-radius: 50%;
+    }
+
+    .ai-connection {
+      position: absolute;
+      background: linear-gradient(90deg, rgba(0,246,255,0.1), rgba(0,246,255,0.5), rgba(0,246,255,0.1));
+      transform-origin: left center;
+      height: 1px;
+    }
+    
     header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 2rem; background-color: #000814; border-bottom: 1px solid #001d3d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 8, 20, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 246, 255, 0.1);
+      backdrop-filter: blur(10px);
     }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .logo {
+      height: 45px;
+      transition: all 0.3s;
+    }
+    .logo:hover {
+      transform: rotate(-5deg) scale(1.1);
+      filter: drop-shadow(0 0 10px var(--primary));
+    }
+    
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 1px;
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 1.5rem;
+    }
+    
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    
     nav a {
-      color: #f1f1f1; text-decoration: none; margin-left: 2rem; font-weight: 500;
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+      padding: 0.5rem 0;
     }
-    nav a:hover { color: #00f6ff; }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.3s;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
     section {
-      padding: 4rem 2rem; max-width: 1200px; margin: auto;
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    h1, h2 { color: #ffffff; margin-bottom: 1rem; }
-    p { color: #cccccc; margin-bottom: 1.5rem; }
+    
+    h1, h2, h3, h4 {
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+      font-size: 1.1rem;
+    }
+    
     .cta {
-      background: linear-gradient(135deg, #00f6ff, #0077b6);
-      color: #000814; padding: 1rem 2rem; text-decoration: none;
-      font-weight: bold; border-radius: 8px; display: inline-block;
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--dark);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(0, 246, 255, 0.3);
     }
+    
+    .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 246, 255, 0.4);
+    }
+    
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: -1;
+    }
+    
+    .cta:hover::before {
+      opacity: 1;
+    }
+    
     .carousel {
-      display: flex; gap: 1rem; overflow-x: auto;
-      scroll-snap-type: x mandatory; scroll-behavior: smooth;
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 3rem 0;
+      margin: 2rem 0;
     }
+    
+    .carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+    
+    .carousel::-webkit-scrollbar-track {
+      background: var(--dark-blue);
+      border-radius: 10px;
+    }
+    
+    .carousel::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+    
     .carousel-item {
-      flex: 0 0 auto; width: 300px; background-color: #001d3d;
-      border-radius: 10px; padding: 1.5rem; scroll-snap-align: start;
+      flex: 0 0 auto;
+      width: 350px;
+      background-color: rgba(0, 29, 61, 0.5);
+      border-radius: 15px;
+      padding: 2.5rem;
+      scroll-snap-align: start;
+      border: 1px solid rgba(0, 246, 255, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
     }
+    
+    .carousel-item:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+      box-shadow: 0 15px 30px rgba(0, 246, 255, 0.2);
+    }
+    
+    .carousel-item h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .carousel-item p {
+      color: var(--gray);
+      font-size: 1rem;
+    }
+    
+    .carousel-item .icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    
     form {
-      display: flex; flex-direction: column; gap: 1rem;
-      max-width: 600px; margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 600px;
+      margin: 3rem auto 0;
+      background-color: rgba(0, 29, 61, 0.5);
+      padding: 3rem;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 246, 255, 0.2);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
-    form input, form textarea {
-      padding: 0.75rem; background-color: #001d3d;
-      border: 1px solid #003566; border-radius: 6px; color: #f1f1f1;
+    
+    form input, 
+    form textarea,
+    form select {
+      width: 100%;
+      padding: 1.2rem;
+      background-color: rgba(0, 53, 102, 0.5);
+      border: 1px solid rgba(0, 246, 255, 0.2);
+      border-radius: 8px;
+      color: var(--light);
+      font-size: 1rem;
+      transition: all 0.3s;
     }
-    .faq-item h4 { color: #00f6ff; }
+    
+    form input:focus, 
+    form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 246, 255, 0.2);
+    }
+    
+    form textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    
+    .form-group label {
+      color: var(--primary);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    
+    .faq-item {
+      background-color: rgba(0, 29, 61, 0.5);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(0, 246, 255, 0.2);
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    
+    .faq-item:hover {
+      border-color: var(--primary);
+      box-shadow: 0 5px 15px rgba(0, 246, 255, 0.1);
+    }
+    
+    .faq-item h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.3rem;
+    }
+    
+    .faq-item h4::after {
+      content: '+';
+      font-size: 1.8rem;
+      transition: transform 0.3s;
+    }
+    
+    .faq-item.active h4::after {
+      content: '-';
+    }
+    
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+    }
+    
+    .faq-item.active .faq-content {
+      max-height: 500px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: rgba(0, 8, 20, 0.9);
+      border-top: 1px solid rgba(0, 246, 255, 0.1);
+      color: var(--gray);
+      backdrop-filter: blur(10px);
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 1.1rem;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .social-icons a {
+      color: var(--light);
+      font-size: 1.8rem;
+      transition: all 0.3s;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 29, 61, 0.5);
+      border: 1px solid rgba(0, 246, 255, 0.2);
+    }
+    
+    .social-icons a:hover {
+      color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 246, 255, 0.2);
+      border-color: var(--primary);
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: var(--dark);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 20px rgba(0, 246, 255, 0.4);
+      transition: all 0.3s;
+      z-index: 999;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 0 30px rgba(0, 246, 255, 0.6);
+    }
+    
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: #25D366;
+      color: white;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s;
+      z-index: 999;
+      animation: pulse 2s infinite;
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+    }
+    
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+      display: none;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes glow {
+      from { box-shadow: 0 0 10px rgba(0, 246, 255, 0.5); }
+      to { box-shadow: 0 0 20px rgba(0, 246, 255, 0.8), 0 0 30px rgba(0, 180, 216, 0.6); }
+    }
+    
+    .glow {
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1200px) {
+      h1 {
+        font-size: 3rem;
+      }
+      
+      h2 {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      section {
+        padding: 5rem 2rem;
+      }
+      
+      .carousel-item {
+        width: 300px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+      
+      nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 8, 20, 0.95);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        border-bottom: 1px solid rgba(0, 246, 255, 0.2);
+        transform: translateY(-150%);
+        transition: transform 0.4s ease;
+        backdrop-filter: blur(10px);
+      }
+      
+      nav.active {
+        transform: translateY(0);
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .carousel-item {
+        width: 280px;
+        padding: 2rem;
+      }
+      
+      form {
+        padding: 2rem;
+      }
+      
+      .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+        left: 20px;
+        bottom: 20px;
+      }
+      
+      .back-to-top {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      section {
+        padding: 4rem 1.5rem;
+      }
+      
+      .carousel-item {
+        width: 260px;
+        padding: 1.5rem;
+      }
+      
+      form {
+        padding: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Uzay Arka Planı -->
+  <div class="space-bg" id="spaceBg"></div>
+  
+  <!-- AI Ağ Efekti -->
+  <div class="ai-network" id="aiNetwork"></div>
+  
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/905425132322" class="whatsapp-float" target="_blank" aria-label="WhatsApp ile iletişim">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="En üste dön">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Confetti Container -->
+  <div id="confetti" class="confetti"></div>
+  
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/OpenAI_Logo.svg/2048px-OpenAI_Logo.svg.png" height="50" alt="Automind Logo" />
-    <nav>
-      <a href="#automind">Automind Nedir</a>
+    <div class="logo-container">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDBmNmZmIiBkPSJNMjU2IDhDMTE5IDggOCAxMTkgOCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzOTMgOCAyNTYgOHptMCA0NDhjLTExMC41IDAtMjAwLTg5LjUtMjAwLTIwMFMxNDUuNSA1NiAyNTYgNTZzMjAwIDg5LjUgMjAwIDIwMC04OS41IDIwMC0yMDAgMjAwem0xMDEuOC0yNjEuN2wtODQuOS02MS43Yy0zLjEtMi4yLTcuMi0yLjItMTAuMy0uMWwtMjUuNCAxMi41Yy0zLjQgMS43LTcuNy0uMi05LjEtMy41bC0zMi40LTg0Yy0xLjctMy40LjItNy43IDMuNS05LjFsMjcuMy0xMy4xYzMuNi0xLjggOC4xLTEuOCAxMS43IDBsOTA1IDY0LjdzMy40IDIuNSA0LjEgNy40IDEuNSAxMC44LTQwLjQgNTguMmMyLjkgMy40IDIuNiA4LjUtLjcgMTEuM0wzMTIgMzM5LjVjLTMuNCAyLjktOC41IDIuNi0xMS4zLS43bC01Ni4xLTY1LjhjLTIuNS0yLjktMi41LTcuMyAwLTEwLjFsMzkuMy00Ny41YzMuNC0yLjUgOC40LTEuOSAxMC44IDEuNWwxMy41IDE4LjZjMS44IDIuNSAxLjggNiAwIDguNWwtMzEuNCA0Mi42Yy0yLjUgMy40LTcuNCA0LjEtMTAuOCAxLjV6Ii8+PC9zdmc+" alt="Automind Logo" class="logo">
+      <span class="logo-text">Automind</span>
+    </div>
+    
+    <button class="hamburger" id="hamburger" aria-label="Menü">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <nav id="navMenu">
+      <a href="#automind">Ana Sayfa</a>
       <a href="#hizmetler">Hizmetler</a>
-      <a href="#iletisim">İletişim</a>
+      <a href="#nedenbiz">Neden Biz?</a>
       <a href="#sss">SSS</a>
+      <a href="#iletisim">İletişim</a>
     </nav>
   </header>
 
-  <section id="automind">
-    <h1>Automind Nedir?</h1>
-    <p>Automind, işletmenize özel akıllı otomasyon sistemleri geliştiren bir dijital ajanstır. Instagram, WhatsApp, Gmail, Slack, ChatGPT, n8n gibi modern araçlarla entegre çalışan sistemler geliştirerek, sizin yerinize çalışan dijital asistanlar ve satış temsilcileri üretir. Hedefimiz: işletmenizin zaman ve para kazanmasını sağlamak.</p>
-  </section>
+  <main>
+    <section id="automind" data-aos="fade-up">
+      <h1>Yapay Zeka ile Dijital Dönüşüm</h1>
+      <p>Automind, işletmenize özel akıllı otomasyon sistemleri geliştiren bir dijital ajanstır. Instagram, WhatsApp, Gmail, Slack, ChatGPT, n8n gibi modern araçlarla entegre çalışan sistemler geliştirerek, sizin yerinize çalışan dijital asistanlar ve satış temsilcileri üretir. Hedefimiz: işletmenizin zaman ve para kazanmasını sağlamak.</p>
+      <a href="#iletisim" class="cta pulse">Ücretsiz Danışmanlık Alın</a>
+    </section>
 
-  <section id="hizmetler">
-    <h2>Size Özel Paketler</h2>
-    <div class="carousel">
-      <div class="carousel-item"><h3>Instagram DM Otomasyonu</h3><p>Yorumlara otomatik yanıt, DM yönlendirme ve chatbot entegrasyonu.</p></div>
-      <div class="carousel-item"><h3>Satış Otomasyonu</h3><p>Potansiyel müşterilere otomatik takip, e-posta dizileri ve CRM entegrasyonu.</p></div>
-      <div class="carousel-item"><h3>Sesli AI Agent</h3><p>Yapay zeka destekli sesli müşteri hizmetleri sistemleri.</p></div>
-      <div class="carousel-item"><h3>n8n Entegrasyonları</h3><p>İş süreçlerinizi otomatikleştiren profesyonel n8n senaryoları.</p></div>
-    </div>
-  </section>
+    <section id="vizyon" data-aos="fade-up">
+      <h2>İşletmenizi Geleceğe Taşıyoruz</h2>
+      <p>Automind olarak yalnızca otomasyon çözümleri sunmakla kalmıyoruz; aynı zamanda işletmenizi dijital çağın gereksinimlerine uyumlu hale getiriyoruz. Süreçlerinizi verimli hale getiriyor, insan hatasını minimize ediyor ve rekabet avantajı sağlıyoruz. Akıllı entegrasyonlar, sesli AI ajanlar, veri otomasyonu ve çok daha fazlasıyla geleceği bugünden işletmenize taşıyoruz.</p>
+    </section>
 
-  <section id="sss">
-    <h2>Sıkça Sorulan Sorular</h2>
-    <div class="faq-item">
-      <h4>Automind kimler için uygundur?</h4>
-      <p>Küçükten büyüğe tüm işletmeler için uygundur.</p>
-    </div>
-    <div class="faq-item">
-      <h4>Hangi platformlarla entegre çalışıyorsunuz?</h4>
-      <p>Instagram, WhatsApp, Facebook, Gmail, Slack, ChatGPT, n8n ve daha fazlası.</p>
-    </div>
-  </section>
+    <section id="hizmetler" data-aos="fade-up">
+      <h2>Size Özel Çözümler</h2>
+      <p>İşletmenizin ihtiyaçlarına göre özelleştirilmiş çözümler sunuyoruz:</p>
+      
+      <div class="carousel">
+        <div class="carousel-item" data-aos="fade-right" data-aos-delay="100">
+          <div class="icon"><i class="fab fa-whatsapp"></i></div>
+          <h3>WhatsApp Otomasyonu</h3>
+          <p>Müşterilerinize 7/24 yapay zeka destekli otomatik yanıtlar gönderin. 0542 513 2322 numaralı WhatsApp hattımızdan demo talep edebilirsiniz.</p>
+        </div>
+        <div class="carousel-item" data-aos="fade-right" data-aos-delay="200">
+          <div class="icon"><i class="fab fa-instagram"></i></div>
+          <h3>Instagram Otomasyonu</h3>
+          <p>Yorumlara otomatik yanıt, DM yönlendirme ve chatbot entegrasyonu ile müşterilerinize anında dönüş yapın.</p>
+        </div>
+        <div class="carousel-item" data-aos="fade-right" data-aos-delay="300">
+          <div class="icon"><i class="fas fa-robot"></i></div>
+          <h3>Sesli AI Agent</h3>
+          <p>Yapay zeka destekli sesli müşteri hizmetleri sistemleri ile çağrı merkezi maliyetlerinizi düşürün.</p>
+        </div>
+        <div class="carousel-item" data-aos="fade-right" data-aos-delay="400">
+          <div class="icon"><i class="fas fa-cogs"></i></div>
+          <h3>n8n Entegrasyonları</h3>
+          <p>İş süreçlerinizi otomatikleştiren profesyonel n8n senaryoları ile verimliliğinizi artırın.</p>
+        </div>
+        <div class="carousel-item" data-aos="fade-right" data-aos-delay="500">
+          <div class="icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Veri Analizi</h3>
+          <p>Google Sheets, Excel, Data Studio entegrasyonları ile verilerinizi otomatik toplayıp görselleştirin.</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="iletisim">
-    <h2>Bize Ulaşın</h2>
-    <form>
-      <input type="text" placeholder="Adınız Soyadınız" required>
-      <input type="email" placeholder="E-posta Adresiniz" required>
-      <textarea placeholder="Mesajınız" rows="5" required></textarea>
-      <button type="submit" class="cta">Gönder</button>
-    </form>
-    <p style="margin-top: 1rem;">Ya da <a href="https://calendly.com/ekremhndolu/30min" target="_blank">Calendly üzerinden randevu alın</a></p>
-  </section>
+    <section id="nedenbiz" data-aos="fade-up">
+      <h2>Neden Automind?</h2>
+      <p>Geleneksel ajanslardan farklı olarak, Automind olarak sadece bir çözüm değil, sürdürülebilir bir büyüme modeli sunuyoruz. Her müşterimize özel analiz, proje planlaması ve sürekli destek sağlıyoruz. Teknolojiyi sadece kullanmakla kalmıyor, sizin için çalıştırıyoruz.</p>
+      
+      <div style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+          <h4>100% Özelleştirilebilir</h4>
+          <div class="faq-content">
+            <p>Her işletmenin ihtiyacı farklıdır. Size özel çözümler geliştiriyoruz. İhtiyaçlarınıza göre tamamen kişiselleştirilmiş otomasyon sistemleri sunuyoruz.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+          <h4>7/24 Destek</h4>
+          <div class="faq-content">
+            <p>Olası sorunlar için her zaman yanınızdayız. 0542 513 2322 numaralı telefondan veya WhatsApp üzerinden bize ulaşabilirsiniz.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+          <h4>Şeffaf Fiyatlandırma</h4>
+          <div class="faq-content">
+            <p>Önceden belirlenmiş paket fiyatlarıyla sürpriz maliyet yok. Ne ödeyeceğinizi baştan biliyorsunuz.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-</body>
-</html>
+    <section id="sss" data-aos="fade-up">
+      <h2>Sıkça Sorulan Sorular</h2>
+      
+      <div class="faq-item">
+        <h4>Automind kimler için uygundur?</h4>
+        <div class="faq-content">
+          <p>Küçükten büyüğe tüm işletmeler için uygundur. Özellikle tekrarlayan iş süreçleri olan, müşteri etkileşimi yüksek işletmeler için idealdir. E-ticaret siteleri, dijital pazarlama ajansları, danışmanlık firmaları ve hizmet sektöründeki işletmeler en çok faydalananlar arasındadır.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <h4>Hangi platformlarla entegre çalışıyorsunuz?</h4>
+        <div class="faq-content">
+          <p>Instagram, WhatsApp, Facebook, Gmail, Slack, ChatGPT, n8n, Google Sheets, Excel, Telegram ve daha fazlası. Özel entegrasyon ihtiyaçlarınız için bize ulaşabilirsiniz. API bağlantıları ile neredeyse tüm popüler platformlarla entegrasyon sağlayabiliyoruz.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <h4>Kurulumdan sonra destek veriyor musunuz?</h4>
+        <div class="faq-content">
+          <p>Evet, her paket sonrası belirli süreli destek ve eğitim sağlıyoruz. Ayrıca isteğe bağlı olarak aylık bakım anlaşmaları yapabiliyoruz. Destek için 0542 513 2322 numaralı telefondan bize ulaşabilirsiniz.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="iletisim" data-aos="fade-up">
+      <h2>Bize Ulaşın</h2>
+      <p>Ücretsiz danışmanlık için formu doldurun veya 0542 513 2322 numaralı telefondan/whatsapp'tan bize ulaşın. 24 saat içinde dönüş yapalım.</p>
+      
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Adınız Soyadınız</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">E-posta Adresiniz</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Telefon Numaranız</label>
+          <input type="tel" id="phone" name="phone" placeholder="0542 513 2322">
+        </div>
+        
+        <div class="form-group">
+          <label for="service">İlgilendiğiniz Hizmet</label>
+          <select id="service" name="service">
+            <option value="">Seçiniz</option>
+            <option value="instagram">Instagram Otomasyonu</option>
+            <option value="whatsapp">WhatsApp Otomasyonu</option>
+            <option value="sales">Satış Otomasyonu</option>
+            <option value="voice">Sesli AI Agent</option>
+            <option value="integration">n8n Entegrasyonları</option>
+            <option value="other">Diğer</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="
